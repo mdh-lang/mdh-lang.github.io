@@ -24,7 +24,7 @@ name                     :
 description              :
 domain                   : "mdh-lang.github.io"  # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url                      : "https://mdh-lang.github.io"  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "/personal-website/"  # the subpath of your site, e.g. "/blog"
+baseurl                  : ""  # the subpath of your site, e.g. "/blog"
 repository               : "mdh-lang/mdh-lang.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/mdh_logo.png"
