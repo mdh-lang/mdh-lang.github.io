@@ -15,7 +15,6 @@ Afterwards, the *scalar phase* (bottom part of the figure) multiplies the partit
 Finally, the *re-composition phase* (left part of the figure) combines the intermediate results in `i`-dimension via concatenation and in `k` dimension via point-wise addition.
 
 
-[//]: # (Visualization of a straightforward low-level instance for MatVec:)
+<span style="text-decoration:underline">Visualization of a straightforward low-level instance for MatVec:</span>
 
-[//]: # ()
-[//]: # (TODO: alternativ/zusäztlich video visualizer ?)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o8q68M95Fak?&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
