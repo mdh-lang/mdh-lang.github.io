@@ -4,7 +4,7 @@ layout: single
 
 # MDH High-Level Program Representation
 
-The [MDH's High-Level Program Representation](todo) expresses data-parallel computations using exactly three higher-order functions:
+The [MDH's High-Level Program Representation](/under_review) expresses data-parallel computations using exactly three higher-order functions:
 
 - `inp_view` captures the accesses to the *input data*
 - `md_hom`   expresses the *data-parallel computation*

@@ -4,7 +4,7 @@ layout: single
 
 # MDH Low-Level Program Representation
 
-The [MDH's Low-Level Program Representation](todo) explicitly expresses a de- and re-composition of a data-parallel computation for the memory and core hierarchies of a parallel architecture.
+The [MDH's Low-Level Program Representation](/under_review) explicitly expresses a de- and re-composition of a data-parallel computation for the memory and core hierarchies of a parallel architecture.
 Consequently, the low-level representation allows formally reasoning about optimizations, and it particularly allows straightforwardly generating executable program code from it (e.g., in OpenMP, CUDA, or OpenCL) as the major optimization decisions are already expressed in the representation.
 
 ![MatVec Expressed in MDH's Low-Level Program Representation](/assets/images/ll_matvec.png)
@@ -15,6 +15,7 @@ Afterwards, the *scalar phase* (bottom part of the figure) multiplies the partit
 Finally, the *re-composition phase* (left part of the figure) combines the intermediate results in `i`-dimension via concatenation and in `k` dimension via point-wise addition.
 
 
-Visualization of a straightforward low-level instance for MatVec:
+[//]: # (Visualization of a straightforward low-level instance for MatVec:)
 
-TODO: alternativ/zusäztlich video visualizer ?
+[//]: # ()
+[//]: # (TODO: alternativ/zusäztlich video visualizer ?)
