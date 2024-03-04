@@ -121,7 +121,7 @@ The above defined `jacobi1d` function is used as follows:
 # Jacobi1D on a 1024-sized input vector (containing fp32 values)
 jacobi1d__fp32_1024 = jacobi1d( fp32, 1024 )
 
-# ... (CUDA host code: create CUDA context, CUDA buffers for "M","v", "w", etc.)
+# ... (CUDA host code: create CUDA context, CUDA buffers for "x", "y", etc.)
 
 # Get MDH "CUDA Module" for Jacobi1D (using ATF-tuned optimizations)
 cuda__jacobi1d__fp32_1024 = jacobi1d__fp32_1024.get_module( CUDA(), AutoTuned( ATF( evaluations(1000), CUDARuntimeProfiler() ) ) )
@@ -203,9 +203,9 @@ Functions `cc` and `pw` are pre-implemented *combine operators* for computing *c
 ~~~ llvm
 func.func @main()
 {
-  %v = memref.alloc() : memref<64xf32>
+  %x = memref.alloc() : memref<64xf32>
 
-  %w = mdh.compute "mdh_jacobi1d"
+  %y = mdh.compute "mdh_jacobi1d"
   {
     inp_view =
     [
@@ -229,7 +229,7 @@ func.func @main()
     inp_types = [ f32 ],
     mda_size  = [ 62 ],
     out_types = [ f32 ]
-  }( %v ) : (memref<64xf32>) -> (memref<62xf32>)
+  }( %x ) : (memref<64xf32>) -> (memref<62xf32>)
 
   return
 }
@@ -489,8 +489,9 @@ series = {CC 2023}
       <a href="https://www.arirasch.net" style="color: black"><h4><b>Ari Rasch</b></h4></a>
       <table>
         <tr><td>Focus:</td><td>Formalism</td></tr>
-        <tr><td>Affiliation:</td><td>University of Münster</td></tr>
+        <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
         <tr><td>Email:</td><td><a href="mailto:a.rasch@uni-muenster.de?cc=r.schulze@uni-muenster.de">a.rasch@uni-muenster.de</a></td></tr>
+        <tr><td>Website:</td><td><a href="https://www.arirasch.net">arirasch.net</a></td></tr>
       </table>
     </div>
   </div>
@@ -500,8 +501,9 @@ series = {CC 2023}
       <a href="https://www.richardschulze.net" style="color: black"><h4><b>Richard Schulze</b></h4></a>
       <table>
         <tr><td>Focus:</td><td>Implementation</td></tr>
-        <tr><td>Affiliation:</td><td>University of Münster</td></tr>
+        <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
         <tr><td>Email:</td><td><a href="mailto:r.schulze@uni-muenster.de?cc=a.rasch@uni-muenster.de">r.schulze@uni-muenster.de</a></td></tr>
+        <tr><td>Website:</td><td><a href="https://www.richardschulze.net">richardschulze.net</a></td></tr>
       </table>
     </div>
   </div>
@@ -511,7 +513,7 @@ series = {CC 2023}
       <a href="TODO" style="color: black"><h4><b>Lars Hunloh</b></h4></a>
       <table>
         <tr><td>Focus:</td><td>MDH in <a href="https://mlir.llvm.org">MLIR</a></td></tr>
-        <tr><td>Affiliation:</td><td>University of Münster</td></tr>
+        <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
         <tr><td>Email:</td><td><a href="mailto:l.hunloh@uni-muenster.de?cc=a.rasch@uni-muenster.de,r.schulze@uni-muenster.de">l.hunloh@uni-muenster.de</a></td></tr>
       </table>
     </div>
@@ -522,7 +524,7 @@ series = {CC 2023}
       <a href="TODO" style="color: black"><h4><b>Jens Hunloh</b></h4></a>
       <table>
         <tr><td>Focus:</td><td>MDH in <a href="https://mlir.llvm.org">MLIR</a></td></tr>
-        <tr><td>Affiliation:</td><td>University of Münster</td></tr>
+        <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
         <tr><td>Email:</td><td><a href="mailto:j.hunloh@uni-muenster.de?cc=a.rasch@uni-muenster.de,r.schulze@uni-muenster.de">j.hunloh@uni-muenster.de</a></td></tr>
       </table>
     </div>
