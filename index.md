@@ -324,14 +324,21 @@ By incorporating the user into the optimization process, we enable two major adv
 
 ### WIP/Short Papers & Talks
 
-1.  A. Rasch, R. Schulze, S. Gorlatch. \\
+1.  A. Rasch, R. Schulze \\
+    [Code Generation & Optimization for Deep-Learning Computations via Multi-Dimensional Homomorphisms](https://www.c4ml.org) \\
+    *Compilers for Machine Learning (C4ML 2024), (lightning talk)* \\
+    <a href="assets/files/publications/c4ml24/c4ml24_talk.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml24/c4ml24_talk.pdf)
+    <a href="assets/files/publications/c4ml24/c4ml24_poster_mlir.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [1. Poster](assets/files/publications/c4ml24/c4ml24_poster_mlir.pdf)
+    <a href="assets/files/publications/c4ml24/c4ml24_poster_dl.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [2. Poster](assets/files/publications/c4ml24/c4ml24_poster_dl.pdf)
+    
+2.  A. Rasch, R. Schulze, S. Gorlatch \\
     [Array Programming via Multi-Dimensional Homomorphisms](assets/files/publications/pldi23/paper.pdf) \\
     *ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2023), (WIP paper)* \\
     <a href="assets/files/publications/pldi23/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/pldi23/paper.pdf)
     <a href="assets/files/publications/pldi23/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pldi23/slides.pdf)
     <a href="https://www.youtube.com/watch?v=FAwgO86b6oo"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=FAwgO86b6oo)
-
-2.  R. Schulze, A. Rasch, S. Gorlatch \\
+    
+3.  R. Schulze, A. Rasch, S. Gorlatch \\
     [Code Generation & Optimization for Deep-Learning Computations on GPUs via Multi-Dimensional Homomorphisms](https://sc21.supercomputing.org/proceedings/tech_poster/) \\
     *International Conference for High Performance Computing, Networking, Storage and Analysis (SC 2021), **Best Poster Finalist**, (short paper)*\\
     <a href="assets/files/publications/sc21/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/sc21/paper.pdf)
@@ -339,13 +346,13 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/sc21/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/sc21/slides.pdf)
     <a href="https://www.youtube.com/watch?v=nBJCc6TGUrg"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=nBJCc6TGUrg)
 
-3.  A. Rasch, R. Schulze, S. Gorlatch \\
+4.  A. Rasch, R. Schulze, S. Gorlatch \\
     [Using MLIR for Multi-Dimensional Homomorphisms](https://groups.google.com/a/tensorflow.org/g/mlir/c/CxFj0UKBBRw) \\
     *Google SIG MLIR Open Design Meeting 2020, (invited talk)*\\
     <a href="assets/files/publications/google20/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/google20/slides.pdf)
     <a href="https://www.youtube.com/watch?v=RQR_9tHscMI"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=RQR_9tHscMI)
 
-4.  A. Rasch, S. Gorlatch \\
+5.  A. Rasch, S. Gorlatch \\
     [md_stencil: High-Performance Stencil Computations on CPU and GPU via Multi-Dimensional Homomorphisms](https://pact20.cc.gatech.edu/acm-src/) \\
     *International Conference on Parallel Architectures and Compilation Techniques (PACT 2020), (SRC -- **Gold Winner**)*\\
     <a href="assets/files/publications/pact20/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/pact20/paper.pdf)
@@ -353,14 +360,14 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/pact20/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pact20/slides.pdf)
     <a href="https://www.youtube.com/watch?v=DGWjHudmkUc&t=4s"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=DGWjHudmkUc&t=4s)
 
-5.  A. Rasch, S. Gorlatch \\
+6.  A. Rasch, S. Gorlatch \\
     [md_poly: A Performance-Portable Polyhedral Compiler Based on Multi-Dimensional Homomorphisms](https://impact-workshop.org/impact2020/) \\
     *IEEE/ACM International Symposium on Code Generation and Optimization (CGO 2020), (SRC -- **Gold Winner**)*\\
     <a href="assets/files/publications/cgo20/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/cgo20/paper.pdf)
     <a href="assets/files/publications/cgo20/poster.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Poster](assets/files/publications/cgo20/poster.pdf)
     <a href="assets/files/publications/cgo20/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/cgo20/slides.pdf)
 
-6.  A. Rasch, R. Schulze, S. Gorlatch \\
+7.  A. Rasch, R. Schulze, S. Gorlatch \\
     [Performance, Portability, and Productivity for Data-Parallel Applications on Multi- and Many-Core Architectures](https://sc19.supercomputing.org/presentation/index-id=drs106&sess=sess264.html) \\
     *International Conference for High Performance Computing, Networking, Storage and Analysis (SC 2019), (doctoral showcase)*\\
     <a href="assets/files/publications/sc19/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/sc19/paper.pdf)
