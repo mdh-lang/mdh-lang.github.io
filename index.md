@@ -50,8 +50,8 @@ From the following code examples, our MDH compiler generates fully automatically
 
 ~~~ python
 def matvec(T: ScalarType, I: int, K: int):
-    @mdh( outputs = {'w': Buffer[T, [I]]                         } ,
-          inputs  = {'M': Buffer[T, [I, K]], 'v': Buffer[T, [K]] } )
+    @mdh( out( w = Buffer[T, [I]]                        ) ,
+          inp( M = Buffer[T, [I, K]], v = Buffer[T, [K]] ) )
     def mdh_matvec():
         def mul(out, inp):
             out['w'] = inp['M'] * inp['v']
@@ -60,10 +60,10 @@ def matvec(T: ScalarType, I: int, K: int):
             res['w'] = lhs['w'] + rhs['w']
 
         return (
-            out_view[T]( {'w': [lambda i, k: (i)]}),
+            out_view[T]( w = [lambda i, k: (i)] ),
               md_hom[I, K]( mul, ( CC, PW(scalar_plus) ) ),
-                inp_view[T, T]( {'M': [lambda i, k: (i, k)],
-                                 'v': [lambda i, k: (k)   ]} )
+                inp_view[T, T]( M = [lambda i, k: (i, k)] ,
+                                v = [lambda i, k: (k)   ] )
         )
 ~~~
 
@@ -100,18 +100,18 @@ a100_cuda__matvec__fp32__1024_1024.destroy()
 
 ~~~ python
 def jacobi1d(T: ScalarType, I: int):
-    @mdh( outputs = {'y': Buffer[T, [I]]     } ,
-          inputs  = {'x': Buffer[T, [I + 2]] } )
+    @mdh( out( y = Buffer[T, [I]]     ) ,
+          inp( x = Buffer[T, [I + 2]] ) )
     def mdh_jacobi1d():
         def f_j1d(out, inp):
             out['y'] = (inp['x', 1] + inp['x', 2] + inp['x', 3]) / 3.0
 
         return (
-            out_view[T]( {'y': [lambda i: (i)]}),
+            out_view[T]( y = [lambda i: (i)] ),
               md_hom[I]( f_j1d, ( CC ) ),
-                inp_view[T]( {'x': [lambda i: (i + 0),
-                                    lambda i: (i + 1),
-                                    lambda i: (i + 2)]} )
+                inp_view[T]( x = [lambda i: (i + 0),
+                                  lambda i: (i + 1),
+                                  lambda i: (i + 2)] )
         )
 ~~~
 
@@ -251,9 +251,9 @@ For our *MatVec* example, our Python-based input code is of the following form:
 
 ~~~ python
 def matvec(T: ScalarType, I: int, K: int):
-    @mdh( outputs = {'w': Buffer[T, [I]]                         } ,
-          inputs  = {'M': Buffer[T, [I, K]], 'v': Buffer[T, [K]] } ,
-          combine_ops = ( CC, PW(scalar_plus) )                    )
+    @mdh( out( w = Buffer[T, [I]]                        ) ,
+          inp( M = Buffer[T, [I, K]], v = Buffer[T, [K]] ) ,
+          combine_ops = ( CC, PW(scalar_plus) )            )
     def mdh_matvec(w, M, v):
         for i in range(I):
             for k in range(K):
