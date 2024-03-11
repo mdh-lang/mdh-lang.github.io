@@ -324,7 +324,7 @@ By incorporating the user into the optimization process, we enable two major adv
 
 ### WIP/Short Papers & Talks
 
-1.  A. Rasch, R. Schulze \\
+1.  A. Rasch, R. Schulze, Jens Hunloh, Lars Hunloh \\
     [Code Generation & Optimization for Deep-Learning Computations via Multi-Dimensional Homomorphisms](https://www.c4ml.org) \\
     *Compilers for Machine Learning (C4ML 2024), (lightning talk)* \\
     <a href="assets/files/publications/c4ml24/c4ml24_talk.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml24/c4ml24_talk.pdf)
