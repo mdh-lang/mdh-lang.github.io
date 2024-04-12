@@ -183,7 +183,7 @@ func.func @main()
     inp_types = [ f32, f32 ],
     mda_size  = [ 128,64 ],
     out_types = [ f32 ]
-  }( %A,%B ) :
+  }( %M,%V ) :
    ( memref<128x64xf32> ,
      memref<64xf32>     ) -> memref<128xf32>
 
