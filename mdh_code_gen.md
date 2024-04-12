@@ -3,7 +3,7 @@ layout: single
 ---
 
 # Code Generation
-We generate executable program code from programs expressed in MDH's low-level program representation.
+We generate executable program code from MDH’s low-level program representation.
 
 **Currently Supported Target Programming Models:**
 - [OpenMP](https://www.openmp.org) (for CPUs)
