@@ -298,28 +298,35 @@ By incorporating the user into the optimization process, we enable two major adv
 <br>
 # Publications
 
-1.  [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://mdh-lang.org/under_review/) \\
-    *under review*
+1.  A. Rasch \\
+    [(De/Re)-Compositions of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
+    *ACM Transactions on Programming Languages and Systems (TOPLAS 2024)*\\
+    <a href="../assets/files/publications/toplas24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/toplas24/paper.pdf)
 
-2.  A. Rasch, R. Schulze, D. Shabalin, A. Elster, S. Gorlatch, M. Hall \\
+2.  A. Rasch \\
+    [Full Version: (De/Re)-Compositions of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
+    *arXiv 2024*\\
+    <a href="../assets/files/publications/arxiv24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/arxiv24/paper.pdf)
+
+3.  A. Rasch, R. Schulze, D. Shabalin, A. Elster, S. Gorlatch, M. Hall \\
     [(De/Re)-Compositions Expressed Systematically via MDH-Based Schedules](https://dl.acm.org/doi/abs/10.1145/3578360.3580269) \\
     *ACM SIGPLAN International Conference on Compiler Construction (CC 2023)* \\
     <a href="assets/files/publications/cc23/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/cc23/paper.pdf)
     <a href="assets/files/publications/cc23/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/cc23/slides.pdf)
 
-3.  A. Rasch, R. Schulze, and S. Gorlatch \\
+4.  A. Rasch, R. Schulze, and S. Gorlatch \\
     [Generating Portable High-Performance Code via Multi-Dimensional Homomorphisms](https://ieeexplore.ieee.org/abstract/document/8891668) \\
     *International Conference on Parallel Architectures and Compilation Techniques (PACT 2019)*\\
     <a href="assets/files/publications/pact19/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/pact19/paper.pdf)
     <a href="assets/files/publications/pact19/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pact19/slides.pdf)
 
-4.  A. Rasch, R. Schulze, M. Gorus, J. Hiller, S. Bartholomäus, S. Gorlatch \\
+5.  A. Rasch, R. Schulze, M. Gorus, J. Hiller, S. Bartholomäus, S. Gorlatch \\
     [High-Performance Probabilistic Record Linkage via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/abs/10.1145/3297280.3297330) \\
     *ACM/SIGAPP Symposium On Applied Computing (SAC 2018)*\\
     <a href="assets/files/publications/sac18/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/sac18/paper.pdf)
     <a href="assets/files/publications/sac18/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/sac18/slides.pdf)
 
-5.  A. Rasch, S. Gorlatch \\
+6.  A. Rasch, S. Gorlatch \\
     [Multi-Dimensional Homomorphisms and Their Implementation in OpenCL](https://link.springer.com/article/10.1007/s10766-017-0508-z) \\
     *International Journal of Parallel Programming (IJPP 2018)*\\
     <a href="assets/files/publications/ijpp18/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/ijpp18/paper.pdf)
@@ -333,14 +340,14 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/c4ml24/c4ml24_talk.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml24/c4ml24_talk.pdf)
     <a href="assets/files/publications/c4ml24/c4ml24_poster_mlir.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [1. Poster](assets/files/publications/c4ml24/c4ml24_poster_mlir.pdf)
     <a href="assets/files/publications/c4ml24/c4ml24_poster_dl.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [2. Poster](assets/files/publications/c4ml24/c4ml24_poster_dl.pdf)
-    
+
 2.  A. Rasch, R. Schulze, S. Gorlatch \\
     [Array Programming via Multi-Dimensional Homomorphisms](assets/files/publications/pldi23/paper.pdf) \\
     *ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2023), (WIP paper)* \\
     <a href="assets/files/publications/pldi23/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/pldi23/paper.pdf)
     <a href="assets/files/publications/pldi23/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pldi23/slides.pdf)
     <a href="https://www.youtube.com/watch?v=FAwgO86b6oo"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=FAwgO86b6oo)
-    
+
 3.  R. Schulze, A. Rasch, S. Gorlatch \\
     [Code Generation & Optimization for Deep-Learning Computations on GPUs via Multi-Dimensional Homomorphisms](https://sc21.supercomputing.org/proceedings/tech_poster/) \\
     *International Conference for High Performance Computing, Networking, Storage and Analysis (SC 2021), **Best Poster Finalist**, (short paper)*\\
