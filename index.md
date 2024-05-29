@@ -304,7 +304,7 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="../assets/files/publications/toplas24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/toplas24/paper.pdf)
 
 2.  A. Rasch \\
-    [Full Version: (De/Re)-Compositions of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://arxiv.org/pdf/2405.05118) \\
+    [Full Version: (De/Re)-Compositions of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://arxiv.org/abs/2405.05118) \\
     *arXiv 2024*\\
     <a href="../assets/files/publications/arxiv24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/arxiv24/paper.pdf)
 
