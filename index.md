@@ -433,38 +433,20 @@ Please use the following citations, when referring to MDH's:
 
 1. *Formalism & Design*
 ~~~
-@article{10.1007/s10766-017-0508-z,
-	author = {Rasch, Ari and Gorlatch, Sergei},
-	date = {2018/02/01},
-	date-added = {2023-11-12 14:28:59 -0700},
-	date-modified = {2023-11-12 14:28:59 -0700},
-	doi = {10.1007/s10766-017-0508-z},
-	id = {Rasch2018},
-	isbn = {1573-7640},
-	journal = {International Journal of Parallel Programming},
-	number = {1},
-	pages = {101--119},
-	title = {Multi-dimensional Homomorphisms and Their Implementation in OpenCL},
-	url = {https://doi.org/10.1007/s10766-017-0508-z},
-	volume = {46},
-	year = {2018},
-	bdsk-url-1 = {https://doi.org/10.1007/s10766-017-0508-z}}
+@article{10.1145/3665643, 
+  author = {Rasch, Ari}, 
+  title = {(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms}, 
+  year = {2024}, 
+  publisher = {Association for Computing Machinery}, 
+  address = {New York, NY, USA}, 
+  issn = {0164-0925}, 
+  url = {https://doi.org/10.1145/3665643}, 
+  doi = {10.1145/3665643}, 
+  journal = {ACM Trans. Program. Lang. Syst.},
+  month = {may}}
 ~~~
 
-2. *OpenCL Code Generation*
-~~~
-@INPROCEEDINGS{8891668,
-  author={Rasch, Ari and Schulze, Richard and Gorlatch, Sergei},
-  booktitle={2019 28th International Conference on Parallel Architectures and Compilation Techniques (PACT)},
-  title={Generating Portable High-Performance Code via Multi-Dimensional Homomorphisms},
-  year={2019},
-  volume={},
-  number={},
-  pages={354-369},
-  doi={10.1109/PACT.2019.00035}}
-~~~
-
-3. *Scheduling Language*
+2. *Scheduling Language*
 ~~~
 @inproceedings{10.1145/3578360.3580269,
 author = {Rasch, Ari and Schulze, Richard and Shabalin, Denys and Elster, Anne and Gorlatch, Sergei and Hall, Mary},
@@ -484,7 +466,7 @@ series = {CC 2023}
 }
 ~~~
 
-4. *Automatic Parallelization and Optimization*
+3. *Automatic Parallelization and Optimization*
 ~~~
 @INPROCEEDINGS{mdpoly,
   author={Rasch, Ari and Schulze, Richard and Gorlatch, Sergei},
