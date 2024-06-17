@@ -76,7 +76,7 @@ matvec__fp32__1024_1024 = matvec( fp32, 1024,1024 )
 # ... (CUDA host code: create CUDA context, CUDA buffers for "M","v", "w", etc.)
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = matvec__fp32__1024_1024.get_module( CUDA(), AutoTuned( ATF( evaluations(1000), CUDARuntimeProfiler() ) ) )
+cuda__matvec__fp32__1024_1024 = matvec__fp32__1024_1024.get_module( CUDA(), pyATF( CUDARuntimeProfiler(), evaluations(1000) ) )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
@@ -124,7 +124,7 @@ jacobi1d__fp32_1024 = jacobi1d( fp32, 1024 )
 # ... (CUDA host code: create CUDA context, CUDA buffers for "x", "y", etc.)
 
 # Get MDH "CUDA Module" for Jacobi1D (using ATF-tuned optimizations)
-cuda__jacobi1d__fp32_1024 = jacobi1d__fp32_1024.get_module( CUDA(), AutoTuned( ATF( evaluations(1000), CUDARuntimeProfiler() ) ) )
+cuda__jacobi1d__fp32_1024 = jacobi1d__fp32_1024.get_module( CUDA(), pyATF( CUDARuntimeProfiler(), evaluations(1000) ) )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__jacobi1d__fp32_1024 = cuda__jacobi1d__fp32_1024.compile( arch='compute_80' )
@@ -269,13 +269,13 @@ matvec__fp32__1024_1024 = matvec( fp32, 1024,1024 )
 # ... (CUDA host code: create CUDA context, CUDA buffers for "M","v", "w", etc.)
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = matvec__fp32__1024_1024.get_module( CUDA(), AutoTuned( ATF( evaluations(1000), CUDARuntimeProfiler() ) ) )
+cuda__matvec__fp32__1024_1024 = matvec__fp32__1024_1024.get_module( CUDA(), pyATF( CUDARuntimeProfiler(), evaluations(1000) ) )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
 
 # MDH CUDA Module: run MatVec on M,v to obtain w
-a100_cuda__matvec__fp32__1024_1024.run( w,M,v)
+a100_cuda__matvec__fp32__1024_1024.run( w,M,v )
 
 # MDH CUDA Module: destroy module
 a100_cuda__matvec__fp32__1024_1024.destroy()
