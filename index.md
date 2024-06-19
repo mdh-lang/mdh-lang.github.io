@@ -6,7 +6,7 @@ layout: splash
 
 # Overview
 
-The approach of [Multi-Dimensional Homomorphisms (MDH)](/under_review) is an algebraic formalism for systematically reasoning about *de-composition* and *re-composition* strategies of data-parallel computations (such as linear algebra routines and stencil computations) for the memory and core hierarchies of state-of-the-art parallel architectures (GPUs, multi-core CPU, multi-device and multi-node systems, etc).
+The approach of [Multi-Dimensional Homomorphisms (MDH)](../assets/files/publications/toplas24/paper.pdf) is an algebraic formalism for systematically reasoning about *de-composition* and *re-composition* strategies of data-parallel computations (such as linear algebra routines and stencil computations) for the memory and core hierarchies of state-of-the-art parallel architectures (GPUs, multi-core CPU, multi-device and multi-node systems, etc).
 
 The MDH approach (formally) introduces:
 
