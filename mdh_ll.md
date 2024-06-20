@@ -4,7 +4,7 @@ layout: single
 
 # MDH Low-Level Program Representation
 
-The [MDH's Low-Level Program Representation](../assets/files/publications/toplas24/paper.pdf) explicitly expresses a de- and re-composition of a data-parallel computation for the memory and core hierarchies of a parallel architecture.
+The [MDH's Low-Level Program Representation](https://dl.acm.org/doi/10.1145/3665643) explicitly expresses a de- and re-composition of a data-parallel computation for the memory and core hierarchies of a parallel architecture.
 Consequently, the low-level representation allows formally reasoning about optimizations, and it particularly allows straightforwardly generating executable program code from it (e.g., in OpenMP, CUDA, or OpenCL) as the major optimization decisions are already expressed in the representation.
 
 ![MatVec Expressed in MDH's Low-Level Program Representation](/assets/images/ll_matvec.png)
