@@ -6,12 +6,12 @@ layout: splash
 
 # Overview
 
-The approach of [Multi-Dimensional Homomorphisms (MDH)](../assets/files/publications/toplas24/paper.pdf) is an algebraic formalism for systematically reasoning about *de-composition* and *re-composition* strategies of data-parallel computations (such as linear algebra routines and stencil computations) for the memory and core hierarchies of state-of-the-art parallel architectures (GPUs, multi-core CPU, multi-device and multi-node systems, etc).
+The approach of [Multi-Dimensional Homomorphisms (MDH)](https://dl.acm.org/doi/10.1145/3665643) is an algebraic formalism for systematically reasoning about *de-composition* and *re-composition* strategies of data-parallel computations (such as linear algebra routines and stencil computations) for the memory and core hierarchies of state-of-the-art parallel architectures (GPUs, multi-core CPU, multi-device and multi-node systems, etc).
 
 The MDH approach (formally) introduces:
 
 1. [*High-Level Program Representation*](/mdh_hl) *(Contribution 1)* that enables the user conveniently implementing data-parallel computations, agnostic from hardware and optimization details;
-2.  [*Low-Level Program Representation*](/mdh_ll) *(Contribution 2)* that expresses device- and data-optimized de- and re-composition strategies of computations;
+2. [*Low-Level Program Representation*](/mdh_ll) *(Contribution 2)* that expresses device- and data-optimized de- and re-composition strategies of computations;
 3. [*Lowering Process*](/mdh_hl_to_ll) *(Contribution 3)* that fully automatically lowers a data-parallel computation expressed in its high-level program representation to an optimized instance in its low-level representation, based on concepts from automatic performance optimization (a.k.a. *auto-tuning*), using the [Auto-Tuning Framework (ATF)](https://www.atf-tuner.org).
 
 The MDH's low-level representation is designed such that [Code Generation](/mdh_code_gen) from it (e.g., in [OpenMP](https://www.openmp.org) for CPUs, [CUDA](https://developer.nvidia.com/cuda-toolkit) for NVIDIA GPUs, or [OpenCL](https://www.khronos.org/opencl/) for multiple kinds of architectures) becomes straightforward.

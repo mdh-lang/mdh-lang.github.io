@@ -4,7 +4,7 @@ layout: single
 
 # Experimental Results
 
-The experimental results presented in the following are described in detail [here](../assets/files/publications/toplas24/paper.pdf).
+The experimental results presented in the following are described in detail [here](https://dl.acm.org/doi/10.1145/3665643).
 
 ## Performance Evaluation
 
