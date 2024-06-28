@@ -339,9 +339,9 @@ By incorporating the user into the optimization process, we enable two major adv
 1.  A. Rasch, R. Schulze, Jens Hunloh, Lars Hunloh \\
     [Code Generation & Optimization for Deep-Learning Computations via Multi-Dimensional Homomorphisms](https://www.c4ml.org) \\
     *Compilers for Machine Learning (C4ML 2024), (lightning talk)* \\
-    <a href="assets/files/publications/c4ml24/c4ml24_talk.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml24/c4ml24_talk.pdf)
-    <a href="assets/files/publications/c4ml24/c4ml24_poster_mlir.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [1. Poster](assets/files/publications/c4ml24/c4ml24_poster_mlir.pdf)
-    <a href="assets/files/publications/c4ml24/c4ml24_poster_dl.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [2. Poster](assets/files/publications/c4ml24/c4ml24_poster_dl.pdf)
+    <a href="assets/files/publications/c4ml24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml24/slides.pdf)
+    <a href="assets/files/publications/c4ml24/poster_1.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [1. Poster](assets/files/publications/c4ml24/poster_1.pdf)
+    <a href="assets/files/publications/c4ml24/poster_2.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [2. Poster](assets/files/publications/c4ml24/poster_2.pdf)
 
 2.  A. Rasch, R. Schulze, S. Gorlatch \\
     [Array Programming via Multi-Dimensional Homomorphisms](assets/files/publications/pldi23/paper.pdf) \\
@@ -435,15 +435,15 @@ Please use the following citations, when referring to MDH's:
 
 1. *Formalism & Design*
 ~~~
-@article{10.1145/3665643, 
-  author = {Rasch, Ari}, 
-  title = {(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms}, 
-  year = {2024}, 
-  publisher = {Association for Computing Machinery}, 
-  address = {New York, NY, USA}, 
-  issn = {0164-0925}, 
-  url = {https://doi.org/10.1145/3665643}, 
-  doi = {10.1145/3665643}, 
+@article{10.1145/3665643,
+  author = {Rasch, Ari},
+  title = {(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms},
+  year = {2024},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  issn = {0164-0925},
+  url = {https://doi.org/10.1145/3665643},
+  doi = {10.1145/3665643},
   journal = {ACM Trans. Program. Lang. Syst.},
   month = {may}}
 ~~~
