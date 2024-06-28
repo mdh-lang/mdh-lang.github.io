@@ -302,31 +302,33 @@ By incorporating the user into the optimization process, we enable two major adv
     [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
     *ACM Transactions on Programming Languages and Systems (TOPLAS 2024)*\\
     <a href="../assets/files/publications/toplas24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/toplas24/paper.pdf)
+    <a href="assets/files/publications/pldi24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pldi24/slides.pdf)    
 
-2.  A. Rasch \\
+3.  A. Rasch \\
     [Full Version: (De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://arxiv.org/abs/2405.05118) \\
     *arXiv 2024*\\
     <a href="../assets/files/publications/arxiv24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/arxiv24/paper.pdf)
+    <a href="assets/files/publications/pldi24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pldi24/slides.pdf)
 
-3.  A. Rasch, R. Schulze, D. Shabalin, A. Elster, S. Gorlatch, M. Hall \\
+5.  A. Rasch, R. Schulze, D. Shabalin, A. Elster, S. Gorlatch, M. Hall \\
     [(De/Re)-Compositions Expressed Systematically via MDH-Based Schedules](https://dl.acm.org/doi/abs/10.1145/3578360.3580269) \\
     *ACM SIGPLAN International Conference on Compiler Construction (CC 2023)* \\
     <a href="assets/files/publications/cc23/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/cc23/paper.pdf)
     <a href="assets/files/publications/cc23/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/cc23/slides.pdf)
 
-4.  A. Rasch, R. Schulze, and S. Gorlatch \\
+6.  A. Rasch, R. Schulze, and S. Gorlatch \\
     [Generating Portable High-Performance Code via Multi-Dimensional Homomorphisms](https://ieeexplore.ieee.org/abstract/document/8891668) \\
     *International Conference on Parallel Architectures and Compilation Techniques (PACT 2019)*\\
     <a href="assets/files/publications/pact19/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/pact19/paper.pdf)
     <a href="assets/files/publications/pact19/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pact19/slides.pdf)
 
-5.  A. Rasch, R. Schulze, M. Gorus, J. Hiller, S. Bartholomäus, S. Gorlatch \\
+7.  A. Rasch, R. Schulze, M. Gorus, J. Hiller, S. Bartholomäus, S. Gorlatch \\
     [High-Performance Probabilistic Record Linkage via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/abs/10.1145/3297280.3297330) \\
     *ACM/SIGAPP Symposium On Applied Computing (SAC 2018)*\\
     <a href="assets/files/publications/sac18/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/sac18/paper.pdf)
     <a href="assets/files/publications/sac18/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/sac18/slides.pdf)
 
-6.  A. Rasch, S. Gorlatch \\
+8.  A. Rasch, S. Gorlatch \\
     [Multi-Dimensional Homomorphisms and Their Implementation in OpenCL](https://link.springer.com/article/10.1007/s10766-017-0508-z) \\
     *International Journal of Parallel Programming (IJPP 2018)*\\
     <a href="assets/files/publications/ijpp18/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/ijpp18/paper.pdf)
