@@ -28,7 +28,7 @@ Our [Experiments](/experiments) report encouraging results on GPUs and CPUs for 
 
 <br>
 # Getting Started
-*(Our implementation of MDH will be open sourced soon on GitHub)*
+*(Our implementation of MDH will be open sourced on GitHub)*
 
 
 <br>
