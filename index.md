@@ -259,7 +259,7 @@ For our *MatVec* example, our Python-based input code is of the following form:
 def matvec(T: ScalarType, I: int, K: int):
     @mdh( out( w = Buffer[T]                ) ,
           inp( M = Buffer[T], v = Buffer[T] ) ,
-          combine_ops = ( cc, pw(add) )       )
+          combine_ops( cc, pw(add) )          )
     def mdh_matvec(w, M, v):
         for i in range(I):
             for k in range(K):
