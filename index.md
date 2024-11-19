@@ -52,6 +52,10 @@ From the following code examples, our MDH compiler generates fully automatically
 def matvec(T: ScalarType, I: int, K: int):
     @mdh()
     def mdh_matvec():
+        @scalar_function(
+            out_scalar_type=[T],
+            inp_scalar_type=[T, T]
+        )
         def mul(out, inp):
             out['w'] = inp['M'] * inp['v']
 
@@ -60,7 +64,7 @@ def matvec(T: ScalarType, I: int, K: int):
 
         return (
             out_view[T]( w = [lambda i, k: (i)] ),
-              md_hom[I, K]( mul, ( cc, pw(add) ) ),
+              md_hom[I, K]( mul, ( cc, pw(scalar_plus) ) ),
                 inp_view[T, T]( M = [lambda i, k: (i, k)] ,
                                 v = [lambda i, k: (k)   ] )
         )
@@ -101,6 +105,10 @@ a100_cuda__matvec__fp32__1024_1024.destroy()
 def jacobi1d(T: ScalarType, I: int):
     @mdh()
     def mdh_jacobi1d():
+        @scalar_function(
+            out_scalar_type=[T],
+            inp_scalar_type=[T, T, T]
+        )
         def f_j1d(out, inp):
             out['y'] = (inp['x', 1] + inp['x', 2] + inp['x', 3]) / 3.0
 
