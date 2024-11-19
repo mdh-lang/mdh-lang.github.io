@@ -50,8 +50,7 @@ From the following code examples, our MDH compiler generates fully automatically
 
 ~~~ python
 def matvec(T: ScalarType, I: int, K: int):
-    @mdh( out( w = Buffer[T, [I]]                        ) ,
-          inp( M = Buffer[T, [I, K]], v = Buffer[T, [K]] ) )
+    @mdh()
     def mdh_matvec():
         def mul(out, inp):
             out['w'] = inp['M'] * inp['v']
@@ -61,7 +60,7 @@ def matvec(T: ScalarType, I: int, K: int):
 
         return (
             out_view[T]( w = [lambda i, k: (i)] ),
-              md_hom[I, K]( mul, ( CC, PW(scalar_plus) ) ),
+              md_hom[I, K]( mul, ( cc, pw(add) ) ),
                 inp_view[T, T]( M = [lambda i, k: (i, k)] ,
                                 v = [lambda i, k: (k)   ] )
         )
@@ -76,7 +75,7 @@ matvec__fp32__1024_1024 = matvec( fp32, 1024,1024 )
 # ... (CUDA host code: create CUDA context, CUDA buffers for "M","v", "w", etc.)
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = matvec__fp32__1024_1024.get_module( CUDA(), pyATF( CUDARuntimeProfiler(), evaluations(1000) ) )
+cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA() )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
@@ -100,15 +99,14 @@ a100_cuda__matvec__fp32__1024_1024.destroy()
 
 ~~~ python
 def jacobi1d(T: ScalarType, I: int):
-    @mdh( out( y = Buffer[T, [I]]     ) ,
-          inp( x = Buffer[T, [I + 2]] ) )
+    @mdh()
     def mdh_jacobi1d():
         def f_j1d(out, inp):
             out['y'] = (inp['x', 1] + inp['x', 2] + inp['x', 3]) / 3.0
 
         return (
             out_view[T]( y = [lambda i: (i)] ),
-              md_hom[I]( f_j1d, ( CC ) ),
+              md_hom[I]( f_j1d, ( cc ) ),
                 inp_view[T]( x = [lambda i: (i + 0),
                                   lambda i: (i + 1),
                                   lambda i: (i + 2)] )
@@ -124,7 +122,7 @@ jacobi1d__fp32_1024 = jacobi1d( fp32, 1024 )
 # ... (CUDA host code: create CUDA context, CUDA buffers for "x", "y", etc.)
 
 # Get MDH "CUDA Module" for Jacobi1D (using ATF-tuned optimizations)
-cuda__jacobi1d__fp32_1024 = jacobi1d__fp32_1024.get_module( CUDA(), pyATF( CUDARuntimeProfiler(), evaluations(1000) ) )
+cuda__jacobi1d__fp32_1024 = mdhc.tune( jacobi1d__fp32_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA() )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__jacobi1d__fp32_1024 = cuda__jacobi1d__fp32_1024.compile( arch='compute_80' )
@@ -251,9 +249,9 @@ For our *MatVec* example, our Python-based input code is of the following form:
 
 ~~~ python
 def matvec(T: ScalarType, I: int, K: int):
-    @mdh( out( w = Buffer[T, [I]]                        ) ,
-          inp( M = Buffer[T, [I, K]], v = Buffer[T, [K]] ) ,
-          combine_ops = ( CC, PW(scalar_plus) )            )
+    @mdh( out( w = Buffer[T]                ) ,
+          inp( M = Buffer[T], v = Buffer[T] ) ,
+          combine_ops = ( cc, pw(add) )       )
     def mdh_matvec(w, M, v):
         for i in range(I):
             for k in range(K):
@@ -269,7 +267,7 @@ matvec__fp32__1024_1024 = matvec( fp32, 1024,1024 )
 # ... (CUDA host code: create CUDA context, CUDA buffers for "M","v", "w", etc.)
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = matvec__fp32__1024_1024.get_module( CUDA(), pyATF( CUDARuntimeProfiler(), evaluations(1000) ) )
+cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA() )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
