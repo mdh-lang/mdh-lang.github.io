@@ -12,7 +12,7 @@ Consequently, the low-level representation allows formally reasoning about optim
 Above, we show a low-level program instance for the example *Matrix-Vector Multiplication (MatVec)*; for simplicity, we consider in this example a simple, artificial target architecture that consists of two memory layers `HM` (Host Memory) and `L1` (L1 Cache), and one core layer `COR` only.
 The *de-composition phase* (right part of the figure) partitions the input, step by step, for each memory and core layer and in each of MatVec's two dimensions (called `i` and `k` dimension).
 Afterwards, the *scalar phase* (bottom part of the figure) multiplies the partitioned matrix and vector elements.
-Finally, the *re-composition phase* (left part of the figure) combines the intermediate results in `i`-dimension via concatenation and in `k` dimension via point-wise addition.
+Finally, the *re-composition phase* (left part of the figure) combines the intermediate results in `i`-dimension via concatenation and in `k`-dimension via point-wise addition.
 
 
 <span style="text-decoration:underline">Visualization of a straightforward low-level instance for MatVec:</span>
