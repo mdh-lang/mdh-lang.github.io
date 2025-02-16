@@ -49,7 +49,7 @@ From the following code examples, our MDH compiler generates fully automatically
 *Matrix-Vector Multiplication (MatVec)* expressed in MDH's high-level program representation:
 
 ~~~ python
-def matvec(T: ScalarType, I: int, K: int):
+def matvec(T: BasicType, I: int, K: int):
     @mdh()
     def mdh_matvec():
         @scalar_function(
@@ -102,7 +102,7 @@ a100_cuda__matvec__fp32__1024_1024.destroy()
 *Jacobi-1D (Jacobi1D)* expressed in MDH's high-level program representation:
 
 ~~~ python
-def jacobi1d(T: ScalarType, I: int):
+def jacobi1d(T: BasicType, I: int):
     @mdh()
     def mdh_jacobi1d():
         @scalar_function(
@@ -256,7 +256,7 @@ Additionally, MDH supports as inputs -- as an alternative to DSL programs in MDH
 For our *MatVec* example, our Python-based input code is of the following form:
 
 ~~~ python
-def matvec(T: ScalarType, I: int, K: int):
+def matvec(T: BasicType, I: int, K: int):
     @mdh( out( w = Buffer[T]                ) ,
           inp( M = Buffer[T], v = Buffer[T] ) ,
           combine_ops( cc, pw(add) )          )
