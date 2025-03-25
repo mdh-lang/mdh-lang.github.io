@@ -49,24 +49,22 @@ From the following code examples, our MDH compiler generates fully automatically
 *Matrix-Vector Multiplication (MatVec)* expressed in MDH's high-level program representation:
 
 ~~~ python
-def matvec(T: BasicType, I: int, K: int):
+def matvec( T:BasicType, I:int,K:int ):
     @mdh()
     def mdh_matvec():
-        @scalar_function(
-            out_scalar_type=[T],
-            inp_scalar_type=[T, T]
-        )
-        def mul(out, inp):
+
+        @scalar_function()
+        def mul( out:Scalar[T], inp:Scalar[T,T] ):
             out['w'] = inp['M'] * inp['v']
 
-        def scalar_plus(res, lhs, rhs):
+        def scalar_plus( res, lhs,rhs ):
             res['w'] = lhs['w'] + rhs['w']
 
         return (
-            out_view[T]( w = [lambda i, k: (i)] ),
-              md_hom[I, K]( mul, ( cc, pw(scalar_plus) ) ),
-                inp_view[T, T]( M = [lambda i, k: (i, k)] ,
-                                v = [lambda i, k: (k)   ] )
+            out_view[T]( w = [lambda i,k: (i)] ),
+              md_hom[I,K]( mul, (cc,pw(scalar_plus)) ),
+                inp_view[T,T]( M = [lambda i,k: (i,k)] ,
+                               v = [lambda i,k: (k)  ] )
         )
 ~~~
 
@@ -102,19 +100,17 @@ a100_cuda__matvec__fp32__1024_1024.destroy()
 *Jacobi-1D (Jacobi1D)* expressed in MDH's high-level program representation:
 
 ~~~ python
-def jacobi1d(T: BasicType, I: int):
+def jacobi1d( T:BasicType, I:int ):
     @mdh()
     def mdh_jacobi1d():
-        @scalar_function(
-            out_scalar_type=[T],
-            inp_scalar_type=[T, T, T]
-        )
-        def f_j1d(out, inp):
+
+        @scalar_function()
+        def f_j1d( out:Scalar[T], inp:Scalar[T,T,T] ):
             out['y'] = (inp['x', 1] + inp['x', 2] + inp['x', 3]) / 3.0
 
         return (
             out_view[T]( y = [lambda i: (i)] ),
-              md_hom[I]( f_j1d, ( cc ) ),
+              md_hom[I]( f_j1d, (cc) ),
                 inp_view[T]( x = [lambda i: (i + 0),
                                   lambda i: (i + 1),
                                   lambda i: (i + 2)] )
