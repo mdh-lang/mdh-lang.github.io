@@ -57,12 +57,12 @@ def matvec( T:BasicType, I:int,K:int ):
         def mul( out:Scalar[T], inp:Scalar[T,T] ):
             out['w'] = inp['M'] * inp['v']
 
-        def scalar_plus( res, lhs,rhs ):
+        def add( res, lhs,rhs ):
             res['w'] = lhs['w'] + rhs['w']
 
         return (
             out_view[T]( w = [lambda i,k: (i)] ),
-              md_hom[I,K]( mul, (cc,pw(scalar_plus)) ),
+              md_hom[I,K]( mul, (cc,pw(add)) ),
                 inp_view[T,T]( M = [lambda i,k: (i,k)] ,
                                v = [lambda i,k: (k)  ] )
         )
@@ -255,7 +255,7 @@ For our *MatVec* example, our Python-based input code is of the following form:
 def matvec(T: BasicType, I: int, K: int):
     @mdh( out( w = Buffer[T]                ) ,
           inp( M = Buffer[T], v = Buffer[T] ) ,
-          combine_ops( cc, pw(scalar_plus) )  )
+          combine_ops( cc, pw(add) )  )
     def mdh_matvec(w, M, v):
         for i in range(I):
             for k in range(K):
