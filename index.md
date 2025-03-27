@@ -252,14 +252,14 @@ Additionally, MDH supports as inputs -- as an alternative to DSL programs in MDH
 For our *MatVec* example, our Python-based input code is of the following form:
 
 ~~~ python
-def matvec(T: BasicType, I: int, K: int):
+def matvec( T:BasicType, I:int,K:int ):
     @mdh( out( w = Buffer[T]                ) ,
           inp( M = Buffer[T], v = Buffer[T] ) ,
-          combine_ops( cc, pw(add) )  )
-    def mdh_matvec(w, M, v):
+          combine_ops( cc, pw(add) )          )
+    def mdh_matvec( w, M,v ):
         for i in range(I):
             for k in range(K):
-                w[i] = M[i, k] * v[k]
+                w[i] = M[i,k] * v[k]
 ~~~
 
 This program is completely equivalent to the DSL-based MDH program for MatVec shown above and used exactly the same:
