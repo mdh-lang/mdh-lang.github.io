@@ -79,14 +79,14 @@ ASSERT_DRV(cuda.cuInit(0))
 device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = mdhc.tune(
+cuda__matvec__fp32__1024_1024 = mdhc.compile(
     computation=matvec__fp32__1024_1024,
     backend=CUDA( device ),
     tuner=pyATF( CUDARuntimeProfiler(), evaluations(1000) )
 )
 
-# MDH CUDA Module: compile & load CUDA code
-a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
+# MDH CUDA Module: compile CUDA code
+a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.nvcc_compile( arch='compute_80' )
 
 # MDH CUDA Module: run MatVec on M,v to obtain w
 w = np.random.rand(1024).astype(np.float32)
@@ -135,14 +135,14 @@ ASSERT_DRV(cuda.cuInit(0))
 device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for Jacobi1D (using ATF-tuned optimizations)
-cuda__jacobi1d__fp32_1024 = mdhc.tune(
+cuda__jacobi1d__fp32_1024 = mdhc.compile(
     computation=jacobi1d__fp32_1024,
     backend=CUDA( device ),
     tuner=pyATF( CUDARuntimeProfiler(), evaluations(1000) )
 )
 
-# MDH CUDA Module: compile & load CUDA code
-a100_cuda__jacobi1d__fp32_1024 = cuda__jacobi1d__fp32_1024.compile( arch='compute_80' )
+# MDH CUDA Module: compile CUDA code
+a100_cuda__jacobi1d__fp32_1024 = cuda__jacobi1d__fp32_1024.nvcc_compile( arch='compute_80' )
 
 # MDH CUDA Module: run Jacobi1D on x to obtain y
 y = np.random.rand(1024).astype(np.float32)
@@ -286,14 +286,14 @@ ASSERT_DRV(cuda.cuInit(0))
 device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = mdhc.tune(
+cuda__matvec__fp32__1024_1024 = mdhc.compile(
     computation=matvec__fp32__1024_1024,
     backend=CUDA( device ),
     tuner=pyATF( CUDARuntimeProfiler(), evaluations(1000) )
 )
 
-# MDH CUDA Module: compile & load CUDA code
-a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
+# MDH CUDA Module: compile CUDA code
+a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.nvcc_compile( arch='compute_80' )
 
 # MDH CUDA Module: run MatVec on M,v to obtain w
 w = np.random.rand(1024).astype(np.float32)
