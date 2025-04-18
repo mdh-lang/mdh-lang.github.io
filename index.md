@@ -79,12 +79,19 @@ ASSERT_DRV(cuda.cuInit(0))
 device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA(device) )
+cuda__matvec__fp32__1024_1024 = mdhc.tune(
+    computation=matvec__fp32__1024_1024,
+    backend=CUDA( device ),
+    tuner=pyATF( CUDARuntimeProfiler(), evaluations(1000) )
+)
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
 
 # MDH CUDA Module: run MatVec on M,v to obtain w
+w = np.random.rand(1024).astype(np.float32)
+M = np.random.rand(1024, 1024).astype(np.float32)
+v = np.random.rand(1024).astype(np.float32)
 a100_cuda__matvec__fp32__1024_1024.run( w,M,v )
 
 # MDH CUDA Module: destroy module
@@ -128,12 +135,18 @@ ASSERT_DRV(cuda.cuInit(0))
 device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for Jacobi1D (using ATF-tuned optimizations)
-cuda__jacobi1d__fp32_1024 = mdhc.tune( jacobi1d__fp32_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA(device) )
+cuda__jacobi1d__fp32_1024 = mdhc.tune(
+    computation=jacobi1d__fp32_1024,
+    backend=CUDA( device ),
+    tuner=pyATF( CUDARuntimeProfiler(), evaluations(1000) )
+)
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__jacobi1d__fp32_1024 = cuda__jacobi1d__fp32_1024.compile( arch='compute_80' )
 
 # MDH CUDA Module: run Jacobi1D on x to obtain y
+y = np.random.rand(1024).astype(np.float32)
+x = np.random.rand(1026).astype(np.float32)
 a100_cuda__jacobi1d__fp32_1024.run( y,x )
 
 # MDH CUDA Module: destroy module
@@ -273,12 +286,19 @@ ASSERT_DRV(cuda.cuInit(0))
 device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA(device) )
+cuda__matvec__fp32__1024_1024 = mdhc.tune(
+    computation=matvec__fp32__1024_1024,
+    backend=CUDA( device ),
+    tuner=pyATF( CUDARuntimeProfiler(), evaluations(1000) )
+)
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
 
 # MDH CUDA Module: run MatVec on M,v to obtain w
+w = np.random.rand(1024).astype(np.float32)
+M = np.random.rand(1024, 1024).astype(np.float32)
+v = np.random.rand(1024).astype(np.float32)
 a100_cuda__matvec__fp32__1024_1024.run( w,M,v )
 
 # MDH CUDA Module: destroy module
