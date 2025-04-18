@@ -74,10 +74,12 @@ The above defined `matvec` function is used as follows:
 # MatVec on 1024x1024-sized input matrix and 1024-sized vector (both containing fp32 values)
 matvec__fp32__1024_1024 = matvec( fp32, 1024,1024 )
 
-# ... (CUDA host code: create CUDA context, CUDA buffers for "M","v", "w", etc.)
+# CUDA host code
+ASSERT_DRV(cuda.cuInit(0))
+device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA() )
+cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA(device) )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
@@ -87,8 +89,6 @@ a100_cuda__matvec__fp32__1024_1024.run( w,M,v )
 
 # MDH CUDA Module: destroy module
 a100_cuda__matvec__fp32__1024_1024.destroy()
-
-# ... (CUDA host code: destroying CUDA context, freeing CUDA buffers, etc.)
 ~~~
 
 {% endtab %}
@@ -123,10 +123,12 @@ The above defined `jacobi1d` function is used as follows:
 # Jacobi1D on a 1024-sized input vector (containing fp32 values)
 jacobi1d__fp32_1024 = jacobi1d( fp32, 1024 )
 
-# ... (CUDA host code: create CUDA context, CUDA buffers for "x", "y", etc.)
+# CUDA host code
+ASSERT_DRV(cuda.cuInit(0))
+device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for Jacobi1D (using ATF-tuned optimizations)
-cuda__jacobi1d__fp32_1024 = mdhc.tune( jacobi1d__fp32_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA() )
+cuda__jacobi1d__fp32_1024 = mdhc.tune( jacobi1d__fp32_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA(device) )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__jacobi1d__fp32_1024 = cuda__jacobi1d__fp32_1024.compile( arch='compute_80' )
@@ -136,8 +138,6 @@ a100_cuda__jacobi1d__fp32_1024.run( y,x )
 
 # MDH CUDA Module: destroy module
 a100_cuda__jacobi1d__fp32_1024.destroy()
-
-# ... (CUDA host code: destroying CUDA context, freeing CUDA buffers, etc.)
 ~~~
 
 {% endtab %}
@@ -268,10 +268,12 @@ This program is completely equivalent to the DSL-based MDH program for MatVec sh
 # MatVec on 1024x1024-sized input matrix and 1024-sized vector (both containing fp32 values)
 matvec__fp32__1024_1024 = matvec( fp32, 1024,1024 )
 
-# ... (CUDA host code: create CUDA context, CUDA buffers for "M","v", "w", etc.)
+# CUDA host code
+ASSERT_DRV(cuda.cuInit(0))
+device = ASSERT_DRV(cuda.cuDeviceGet(device_id))
 
 # Get MDH "CUDA Module" for MatVec (using ATF-tuned optimizations)
-cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA() )
+cuda__matvec__fp32__1024_1024 = mdhc.tune( matvec__fp32__1024_1024, pyATF( CUDARuntimeProfiler(), evaluations(1000) ), CUDA(device) )
 
 # MDH CUDA Module: compile & load CUDA code
 a100_cuda__matvec__fp32__1024_1024 = cuda__matvec__fp32__1024_1024.compile( arch='compute_80' )
@@ -281,8 +283,6 @@ a100_cuda__matvec__fp32__1024_1024.run( w,M,v )
 
 # MDH CUDA Module: destroy module
 a100_cuda__matvec__fp32__1024_1024.destroy()
-
-# ... (CUDA host code: destroying CUDA context, freeing CUDA buffers, etc.)
 ~~~
 
 ## Schedule-Based Optimization Process
