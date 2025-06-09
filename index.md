@@ -57,6 +57,7 @@ def matvec( T:BasicType, I:int,K:int ):
         def mul( out:Scalar[T], inp:Scalar[T,T] ):
             out['w'] = inp['M'] * inp['v']
 
+        @pw_custom_func()
         def add( res, lhs,rhs ):
             res['w'] = lhs['w'] + rhs['w']
 
