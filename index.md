@@ -360,6 +360,11 @@ By incorporating the user into the optimization process, we enable two major adv
 ### WIP/Short Papers & Talks
 
 1.  A. Rasch, R. Schulze \\
+    [Code Generation & Optimization for Data-Parallel Computations via MDH and ATF](http://nextsilicon.com) \\
+    *NextSilicon Seminar Series 2025*; *online event*\\
+    <a href="../assets/files/slides/nextsilicon25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](../assets/files/slides/nextsilicon25/slides.pdf)  
+
+1.  A. Rasch, R. Schulze \\
     [(De/Re)-Composition of Array Computations via Multi-Dimensional Homomorphisms + An MDH-Based DSL for Array Computations](http://pldi25.sigplan.org) \\
     *ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2025); Seoul, Korea* \\
     <a href="assets/files/publications/pldi25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/pldi25/slides.pdf)
