@@ -558,7 +558,7 @@ series = {CC 2023}
       <a href="https://www.arirasch.net" style="color: black"><img src="assets/images/ari.JPG" alt="Avatar"></a>
       <a href="https://www.arirasch.net" style="color: black"><h4><b>Ari Rasch</b></h4></a>
       <table>
-        <tr><td>Focus:</td><td>Formalism</td></tr>
+        <tr><td>Focus:</td><td>Project Lead</td></tr>
         <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
         <tr><td>Email:</td><td><a href="mailto:a.rasch@uni-muenster.de?cc=r.schulze@uni-muenster.de">a.rasch@uni-muenster.de</a></td></tr>
         <tr><td>Website:</td><td><a href="https://www.arirasch.net">arirasch.net</a></td></tr>
@@ -570,7 +570,7 @@ series = {CC 2023}
       <a href="https://www.richardschulze.net" style="color: black"><img src="assets/images/richard.PNG" alt="Avatar"></a>
       <a href="https://www.richardschulze.net" style="color: black"><h4><b>Richard Schulze</b></h4></a>
       <table>
-        <tr><td>Focus:</td><td>Implementation</td></tr>
+        <tr><td>Focus:</td><td>Technical Lead</td></tr>
         <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
         <tr><td>Email:</td><td><a href="mailto:r.schulze@uni-muenster.de?cc=a.rasch@uni-muenster.de">r.schulze@uni-muenster.de</a></td></tr>
         <tr><td>Website:</td><td><a href="https://www.richardschulze.net">richardschulze.net</a></td></tr>
