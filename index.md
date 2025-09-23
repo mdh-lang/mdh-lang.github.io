@@ -6,7 +6,7 @@ layout: splash
 
 # Overview
 
-The approach of [Multi-Dimensional Homomorphisms (MDH)](https://dl.acm.org/doi/10.1145/3665643) is an algebraic formalism for systematically reasoning about *de-composition* and *re-composition* strategies of data-parallel computations (such as linear algebra routines and stencil computations) for the memory and core hierarchies of state-of-the-art parallel architectures (GPUs, multi-core CPU, multi-device and multi-node systems, etc).
+The approach of [Multi-Dimensional Homomorphisms (MDH)](https://dl.acm.org/doi/10.1145/3665643) is an algebraic formalism for systematically reasoning about *de-composition* and *re-composition* strategies of data-parallel computations (such as linear algebra routines and stencil computations) for the memory and core hierarchies of state-of-the-art parallel architectures (including GPUs, multi-core CPUs, as well as systems spanning multiple devices and node).
 
 The MDH approach (formally) introduces:
 
@@ -34,7 +34,7 @@ Our [Experiments](/experiments) report encouraging results on GPUs and CPUs for 
 <br>
 # Code Examples
 
-From the following code examples, our MDH compiler generates fully automatically device- and data-optimized, executable program code, e.g., in OpenMP for CPUs, CUDA for NVIDIA GPUs, or OpenCL for multiple kinds of architectures.
+From the following code examples, our MDH compiler fully automatically generates device- and data-optimized, executable program code, e.g., in OpenMP for CPUs, CUDA for NVIDIA GPUs, or OpenCL for multiple kinds of architectures.
 
 ## MDH's [Python](https://www.python.org)-Based User Interface
 
@@ -308,7 +308,7 @@ a100_cuda__matvec__fp32__1024_1024.destroy()
 
 ## Schedule-Based Optimization Process
 
-MDH optionally allows incorporating expert knowledge into the optimization process, using its [scheduling language](https://dl.acm.org/doi/abs/10.1145/3578360.3580269).
+MDH optionally allows expert users to incorporate knowledge into the optimization process using its [scheduling language](https://dl.acm.org/doi/abs/10.1145/3578360.3580269).
 By incorporating the user into the optimization process, we enable two major advantages over the standard MDH workflow:
   1. better optimization, as an auto-tuning system might not always make the same high-quality optimization decisions as a human expert
   2. faster auto-tuning, as some (or even all) optimization decisions might be made by the expert user and thus are not left to the costly auto-tuner
