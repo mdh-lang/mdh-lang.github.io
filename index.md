@@ -323,7 +323,7 @@ By incorporating the user into the optimization process, we enable two major adv
 
 1.  A. Rasch \\
     [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
-    *ACM Transactions on Programming Languages and Systems (TOPLAS 2024)*\\
+    *ACM Transactions on Programming Languages and Systems (TOPLAS 2024) -- Presented at PLDI’24 conference*\\
     <a href="../assets/files/publications/toplas24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/toplas24/paper.pdf)
     <a href="assets/files/publications/toplas24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/toplas24/slides.pdf)    
 
