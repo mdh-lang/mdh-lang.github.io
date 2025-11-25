@@ -319,7 +319,7 @@ By incorporating the user into the optimization process, we enable two major adv
 ~~~
 
 <br>
-# Selected Publications
+# Publications
 
 1.  A. Rasch \\
     [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
