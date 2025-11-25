@@ -319,7 +319,7 @@ By incorporating the user into the optimization process, we enable two major adv
 ~~~
 
 <br>
-# Publications
+# Selected Publications
 
 1.  A. Rasch \\
     [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
@@ -339,6 +339,7 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/cc23/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/cc23/paper.pdf)
     <a href="assets/files/publications/cc23/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/cc23/slides.pdf)
 
+<!--
 6.  A. Rasch, R. Schulze, and S. Gorlatch \\
     [Generating Portable High-Performance Code via Multi-Dimensional Homomorphisms](https://ieeexplore.ieee.org/abstract/document/8891668) \\
     *International Conference on Parallel Architectures and Compilation Techniques (PACT 2019)*\\
@@ -355,7 +356,7 @@ By incorporating the user into the optimization process, we enable two major adv
     [Multi-Dimensional Homomorphisms and Their Implementation in OpenCL](https://link.springer.com/article/10.1007/s10766-017-0508-z) \\
     *International Journal of Parallel Programming (IJPP 2018)*\\
     <a href="assets/files/publications/ijpp18/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/ijpp18/paper.pdf)
-
+-->
 
 ### Talks
 
