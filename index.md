@@ -386,10 +386,12 @@ By incorporating the user into the optimization process, we enable two major adv
     *Compilers for Machine Learning (C4ML 2025)*; *Las Vegas NV, USA*\\
     <a href="assets/files/publications/c4ml25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml25/slides.pdf)
 
+<!--
 1.  A. Rasch \\
     [Toward Performance & Portability & Productivity in Parallel Programming: A Holistic Code Generation, Optimization, and Execution Approach for Data-Parallel Computations Targeting Modern Parallel Architectures]() \\
     *Thesis Defense Presentation 2025*; *Münster, Germany*\\
     <a href="assets/files/publications/phd_defense/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/phd_defense/slides.pdf)
+-->
 
 1.  A. Rasch \\
     [Toward Performance & Portability & Productivity in Parallel Programming](https://sc24.supercomputing.org) \\
@@ -434,6 +436,7 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/google20/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/google20/slides.pdf)
     <a href="https://www.youtube.com/watch?v=RQR_9tHscMI"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=RQR_9tHscMI)
 
+<!--
 1.  A. Rasch, S. Gorlatch \\
     [md_stencil: High-Performance Stencil Computations on CPU and GPU via Multi-Dimensional Homomorphisms](https://pact20.cc.gatech.edu/acm-src/) \\
     *International Conference on Parallel Architectures and Compilation Techniques (PACT 2020), (SRC -- **Gold Winner**)*\\
@@ -456,8 +459,6 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/sc19/poster.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Poster](assets/files/publications/sc19/poster.pdf)
     <a href="assets/files/publications/sc19/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/sc19/slides.pdf)
 
-
-<!--
 1.  A. Rasch, R. Schulze, S. Gorlatch \\
     [md_poly: A Performance-Portable Polyhedral Compiler Based on Multi-Dimensional Homomorphisms](https://impact-workshop.org/impact2020/) \\
     *International Workshop on Polyhedral Compilation Techniques (IMPACT 2020), (WIP paper)*\\
