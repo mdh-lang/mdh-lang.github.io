@@ -319,7 +319,7 @@ By incorporating the user into the optimization process, we enable two major adv
 ~~~
 
 <br>
-# Publications
+# Publications (Selected)
 
 1.  A. Rasch \\
     [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
@@ -358,7 +358,15 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/ijpp18/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/ijpp18/paper.pdf)
 -->
 
-### Talks
+### Talks (Selected)
+
+1.  [Systematic Code Generation for ML Computations based on Multi-Dimensional Homomorphisms](https://c4ml.org) \\
+    *Compilers for Machine Learning (C4ML 2026)*; *Sydney, Australia*\\
+    <a href="assets/files/publications/c4ml26/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml26/slides.pdf)
+
+1.  [Reduction-Aware Directive-Based Programming via Multi-Dimensional Homomorphisms](https://sc25.conference-program.com/presentation/?id=ws_waccpd105&sess=sess218) \\
+    *The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC 2025)*; *St. Louis MO, USA*\\
+    <a href="assets/files/publications/sc25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/sc25/slides.pdf) 
 
 1.  A. Rasch, R. Schulze \\
     [Code Generation & Optimization for Data-Parallel Computations via MDH and ATF](http://nextsilicon.com) \\
