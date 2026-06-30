@@ -17,4 +17,4 @@ Finally, the *re-composition phase* (left part of the figure) combines the inter
 
 <span style="text-decoration:underline">Visualization of a straightforward low-level instance for MatVec:</span>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/o8q68M95Fak?&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
+![Visualization of a straightforward low-level instance for MatVec](/assets/images/mdh.gif)
