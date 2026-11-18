@@ -6,35 +6,46 @@ layout: splash
 
 # Overview
 
-The approach of [Multi-Dimensional Homomorphisms (MDH)](https://dl.acm.org/doi/10.1145/3665643) is an algebraic formalism for systematically reasoning about *de-composition* and *re-composition* strategies of data-parallel computations (such as linear algebra routines and stencil computations) for the memory and core hierarchies of state-of-the-art parallel architectures (including GPUs, multi-core CPUs, as well as systems spanning multiple devices and nodes).
+[Multi-Dimensional Homomorphisms (MDH)](https://dl.acm.org/doi/10.1145/3665643) is an algebraic formalism implemented as a DSL compiler for AI computations and beyond.
+Its ultimate goal is to deliver *performance*, *portability*, and *productivity*.
+To this end, MDH enables systematic reasoning about *de-composition* and *re-composition* strategies of data-parallel computations for the memory and core hierarchies of state-of-the-art parallel architectures.
 
-The MDH approach (formally) introduces:
+The MDH approach [formally introduces](https://dl.acm.org/doi/10.1145/3665643) and [implements](TODO) ***program representations*** on different abstraction levels
 
-1. [*High-Level Program Representation*](/mdh_hl) *(Contribution 1)* that enables the user conveniently implementing data-parallel computations, agnostic from hardware and optimization details;
-2. [*Low-Level Program Representation*](/mdh_ll) *(Contribution 2)* that expresses device- and data-optimized de- and re-composition strategies of computations;
-3. [*Lowering Process*](/mdh_hl_to_ll) *(Contribution 3)* that fully automatically lowers a data-parallel computation expressed in its high-level program representation to an optimized instance in its low-level representation, based on concepts from automatic performance optimization (a.k.a. *auto-tuning*), using the [Auto-Tuning Framework (ATF)](https://www.atf-tuner.org).
+1. [*High-Level Program Representation*](/mdh_hl) (`HL-IR`) expresses data-parallel computations agnostic of hardware and optimization details
+2. [*Low-Level Program Representation*](/mdh_ll) (`LL-IR`) expresses device- and data-optimized data movement and parallelization optimizations
+3. [*Code-Level Program Representation*](/mdh_cl) (`CL-IR`) expresses data-parallel computations in an imperative style
 
-The MDH's low-level representation is designed such that [Code Generation](/mdh_code_gen) from it (e.g., in [OpenMP](https://www.openmp.org) for CPUs, [CUDA](https://developer.nvidia.com/cuda-toolkit) for NVIDIA GPUs, or [OpenCL](https://www.khronos.org/opencl/) for multiple kinds of architectures) becomes straightforward.
+and fully automatic ***transformations*** between them
 
-![Overview of MDH Approach](/assets/images/overview.png)
+4. [*High-Level* → *Low-Level*](/mdh_hl_to_ll) (`HL➜LL`): based on auto-tuning, using the [Auto-Tuning Framework (ATF)](https://www.atf-tuner.org)
+5. [*Low-Level* → *Code-Level*](/mdh_ll_to_cl) (`LL➜CL`): shifts paradigm from functional to imperative
+6. [*Code-Level* → *Code-Level*](/mdh_cl_to_cl) (`CL➜CL`): applies standard code-level optimizations (e.g., loop unrolling)
+7. [*Code-Level* → *Backend*](/mdh_cl_to_backend) (`CL➜{…}`): lowers to executable target code (such as CUDA, OpenMP, and OpenCL)
+8. [*Backend* → *Backend*](/mdh_backend_to_backend) (`{…}➜{…}`): target-specific optimizations (e.g., exploiting warp-level operations on NVIDIA GPUs)
 
-Our [Experiments](/experiments) report encouraging results on GPUs and CPUs for MDH as compared to state-of-practice approaches, including NVIDIA [cuBLAS](https://developer.nvidia.com/cublas)/[cuDNN](https://developer.nvidia.com/cudnn) and Intel [oneMKL](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/2023-0/intel-oneapi-math-kernel-library-onemkl.html)/[oneDNN](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onednn.html) which are hand-optimized libraries provided by vendors.
+
+<p align="center">
+  <img src="/assets/images/overview.png" alt="Overview of MDH Approach" width="85%">
+</p>
+
+Our [Experiments](/experiments) show results on GPUs and CPUs that are competitive with, and sometimes better than, state-of-practice approaches, including NVIDIA [cuBLAS](https://developer.nvidia.com/cublas)/[cuDNN](https://developer.nvidia.com/cudnn) and Intel [oneMKL](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/2023-0/intel-oneapi-math-kernel-library-onemkl.html)/[oneDNN](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onednn.html) which are hand-optimized libraries provided by vendors.
 
 ### Ultimate MDH Goals
 
 - **Performance**: achieve performance competitive to hand-optimized solutions
-- **Portability**: target any kind of parallel architecture
+- **Portability**: target arbitrary parallel architecture
 - **Productivity**: free user from hardware and optimization details
 
 <br>
 # Getting Started
-*(Our implementation of MDH will be open sourced on GitHub)*
+*(Our MDH implementation will be open-sourced on GitHub.)*
 
 
 <br>
 # Code Examples
 
-From the following code examples, our MDH compiler fully automatically generates device- and data-optimized, executable program code, e.g., in OpenMP for CPUs, CUDA for NVIDIA GPUs, or OpenCL for multiple kinds of architectures.
+From the following code examples, the MDH compiler fully automatically generates device- and data-optimized, executable program code, e.g., in CUDA for NVIDIA GPUs, OpenMP for CPUs, or OpenCL for multiple kinds of architectures.
 
 ## MDH's [Python](https://www.python.org)-Based User Interface
 
@@ -207,7 +218,7 @@ func.func @main()
 }
 ~~~
 
-Here, functions `@mul` and `@add` are straightforward, user-defined functions for computing *scalar multiplication* or *scalar addition*, respectively (both not shown for brevity).
+Functions `@mul` and `@add` are straightforward, user-defined functions for computing *scalar multiplication* or *scalar addition*, respectively (both not shown for brevity).
 Functions `cc` and `pw` are pre-implemented *combine operators* for computing *concatenation* (`cc`) or *point-wise operations* (`pw`), respectively.
 
 {% endtab %}
@@ -251,7 +262,7 @@ func.func @main()
 }
 ~~~
 
-Here, function `@jacobi` is the Jacobi-specific computation (not shown for brevity), and `cc` is a pre-implemented *combine operator* for computing *concatenation*.
+Function `@jacobi` is the Jacobi-specific computation (not shown for brevity), and `cc` is a pre-implemented *combine operator* for computing *concatenation*.
 
 {% endtab %}
 
@@ -262,8 +273,7 @@ Here, function `@jacobi` is the Jacobi-specific computation (not shown for brevi
 
 ## Automatic Parallelization & Optimization
 
-Additionally, MDH supports as inputs -- as an alternative to DSL programs in MDH's high-level programming interface (shown above) -- also straightforward (annotated) sequential program code.
-For our *MatVec* example, our Python-based input code is of the following form:
+As an alternative to DSL programs in MDH's high-level programming representation, MDH supports as input additionally straightforward (annotated) sequential program code:
 
 ~~~ python
 def matvec( T:BasicType, I:int,K:int ):
@@ -276,7 +286,7 @@ def matvec( T:BasicType, I:int,K:int ):
                 w[i] = M[i,k] * v[k]
 ~~~
 
-This program is completely equivalent to the DSL-based MDH program for MatVec shown above and used exactly the same:
+This program is equivalent to the DSL-based MDH program for MatVec above and is used the same way:
 
 ~~~ python
 # MatVec on 1024x1024-sized input matrix and 1024-sized vector (both containing fp32 values)
@@ -310,30 +320,32 @@ a100_cuda__matvec__fp32__1024_1024.destroy()
 
 MDH optionally allows expert users to incorporate knowledge into the optimization process using its [scheduling language](https://dl.acm.org/doi/abs/10.1145/3578360.3580269).
 By incorporating the user into the optimization process, we enable two major advantages over the standard MDH workflow:
-  1. better optimization, as an auto-tuning system might not always make the same high-quality optimization decisions as a human expert
-  2. faster auto-tuning, as some (or even all) optimization decisions might be made by the expert user and thus are not left to the costly auto-tuner
+  1. *better optimization*, as an auto-tuning system might not always make the same high-quality optimization decisions as a human expert
+  2. *faster auto-tuning*, as some (or even all) optimization decisions might be made by the expert user and thus are not left to the costly auto-tuner
 
-
-~~~ python
-(An example scheduling program follows soon)
-~~~
+*(An example scheduling program follows soon)*
 
 <br>
-<h1 id="publications">Publications (Selected)</h1>
+<h1 id="publications">Selected Publications</h1>
 
-1.  A. Rasch \\
+1.  R. Schulze, A. Rasch \\
+    [From Algebraic Data-Parallel Expressions to Imperative Parallel Code via Multi-Dimensional Homomorphisms](assets/files/publications/cgo27/paper.pdf) \\
+    *IEEE/ACM International Symposium on Code Generation and Optimization (CGO 2027), (to appear)*\\
+    <a href="assets/files/publications/cgo27/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/cgo27/paper.pdf)
+
+2.  A. Rasch \\
     [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
     *ACM Transactions on Programming Languages and Systems (TOPLAS 2024) -- Presented at PLDI’24 conference*\\
-    <a href="../assets/files/publications/toplas24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/toplas24/paper.pdf)
-    <a href="assets/files/publications/toplas24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/toplas24/slides.pdf)    
+    <a href="assets/files/publications/toplas24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/toplas24/paper.pdf)
+    <a href="assets/files/publications/toplas24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/toplas24/slides.pdf)
 
 3.  A. Rasch \\
     [Full Version: (De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://arxiv.org/abs/2405.05118) \\
     *arXiv 2024*\\
-    <a href="../assets/files/publications/arxiv24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](../assets/files/publications/arxiv24/paper.pdf)
+    <a href="assets/files/publications/arxiv24/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/arxiv24/paper.pdf)
     <a href="assets/files/publications/arxiv24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/arxiv24/slides.pdf)
 
-5.  A. Rasch, R. Schulze, D. Shabalin, A. Elster, S. Gorlatch, M. Hall \\
+4.  A. Rasch, R. Schulze, D. Shabalin, A. Elster, S. Gorlatch, M. Hall \\
     [(De/Re)-Compositions Expressed Systematically via MDH-Based Schedules](https://dl.acm.org/doi/abs/10.1145/3578360.3580269) \\
     *ACM SIGPLAN International Conference on Compiler Construction (CC 2023)* \\
     <a href="assets/files/publications/cc23/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/cc23/paper.pdf)
@@ -358,7 +370,7 @@ By incorporating the user into the optimization process, we enable two major adv
     <a href="assets/files/publications/ijpp18/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/ijpp18/paper.pdf)
 -->
 
-### Talks (Selected)
+### Selected Talks
 
 1.  [Systematic Code Generation for ML Computations based on Multi-Dimensional Homomorphisms](https://c4ml.org) \\
     *Compilers for Machine Learning (C4ML 2026)*; *Sydney, Australia*\\
@@ -366,20 +378,20 @@ By incorporating the user into the optimization process, we enable two major adv
 
 1.  [Reduction-Aware Directive-Based Programming via Multi-Dimensional Homomorphisms](https://sc25.conference-program.com/presentation/?id=ws_waccpd105&sess=sess218) \\
     *The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC 2025)*; *St. Louis MO, USA*\\
-    <a href="assets/files/publications/sc25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/sc25/slides.pdf) 
+    <a href="assets/files/publications/sc25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/sc25/slides.pdf)
 
-1.  A. Rasch, R. Schulze \\
+<!-- 1.  A. Rasch, R. Schulze \\
     [Code Generation & Optimization for Data-Parallel Computations via MDH and ATF](http://nextsilicon.com) \\
     *NextSilicon Seminar Series 2025*; *online event*\\
-    <a href="assets/files/publications/nextsilicon25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/nextsilicon25/slides.pdf)  
+    <a href="assets/files/publications/nextsilicon25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/nextsilicon25/slides.pdf)
 
 1.  A. Rasch, R. Schulze \\
     [(De/Re)-Composition of Array Computations via Multi-Dimensional Homomorphisms + An MDH-Based DSL for Array Computations](http://pldi25.sigplan.org) \\
     *ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2025); Seoul, Korea* \\
     <a href="assets/files/publications/pldi25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/pldi25/slides.pdf)
-    <a href="https://www.youtube.com/watch?v=7Tr9IKYhdhw"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=7Tr9IKYhdhw)
+    <a href="https://www.youtube.com/watch?v=7Tr9IKYhdhw"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=7Tr9IKYhdhw) -->
 
-1.  A. Rasch, R. Schulze \\
+<!-- 1.  A. Rasch, R. Schulze \\
     [MDH+ATF: Code Generation & Optimization for Deep-Learning Computations on NVIDIA GPUs](https://developer.nvidia.com/blog/author/vgrover/) \\
     *NVIDIA Codegen Community Forum 2025*; *online event*\\
     <a href="assets/files/publications/nvidia25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/nvidia25/slides.pdf)
@@ -387,49 +399,49 @@ By incorporating the user into the optimization process, we enable two major adv
 1.  A. Rasch, R. Schulze \\
     [MDH+ATF: Code Generation & Optimization for Deep-Learning Computations](http://roofline.ai) \\
     *Roofline AI 2025*; *Cologne, Germany*\\
-    <a href="assets/files/publications/roofline25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/roofline25/slides.pdf)
+    <a href="assets/files/publications/roofline25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/roofline25/slides.pdf) -->
 
 1.  A. Rasch, R. Schulze \\
     [MDH+ATF: Code Generation & Optimization for Deep-Learning Computations](http://c4ml.org) \\
     *Compilers for Machine Learning (C4ML 2025)*; *Las Vegas NV, USA*\\
     <a href="assets/files/publications/c4ml25/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml25/slides.pdf)
 
-1.  A. Rasch \\
+<!-- 1.  A. Rasch \\
     [Toward Performance & Portability & Productivity in Parallel Programming](https://sc24.supercomputing.org) \\
     *The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC 2024)*; *Atlanta GA, USA*\\
-    <a href="assets/files/publications/sc24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/sc24/slides.pdf)
+    <a href="assets/files/publications/sc24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/sc24/slides.pdf) -->
 
-1.  A. Rasch \\
+<!-- 1.  A. Rasch \\
     [(De/Re)-Composition of Data-Parallel Computations via Multi-Dimensional Homomorphisms](https://dl.acm.org/doi/10.1145/3665643) \\
     *ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2024); Copenhagen, Denmark* \\
-    <a href="assets/files/publications/pldi24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/pldi24/slides.pdf)
+    <a href="assets/files/publications/pldi24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/pldi24/slides.pdf) -->
 
-1.  Jens Hunloh, Lars Hunloh, R. Schulze, A. Rasch, T. Grosser \\
+<!-- 1.  Jens Hunloh, Lars Hunloh, R. Schulze, A. Rasch, T. Grosser \\
     [Linalg vs MDH: A Comparison of two MLIR Dialects](https://llvm.swoogo.com/2024eurollvm) \\
     *European LLVM Developers' Meeting (EuroLLVM 2024); Vienna, Austria* \\
-    <a href="assets/files/publications/eurollvm24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/eurollvm24/slides.pdf)
+    <a href="assets/files/publications/eurollvm24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/eurollvm24/slides.pdf) -->
 
-1.  A. Rasch, R. Schulze, Jens Hunloh, Lars Hunloh \\
+<!-- 1.  A. Rasch, R. Schulze, Jens Hunloh, Lars Hunloh \\
     [Code Generation & Optimization for Deep-Learning Computations via Multi-Dimensional Homomorphisms](https://www.c4ml.org) \\
     *Compilers for Machine Learning (C4ML 2024), (lightning talk)* \\
     <a href="assets/files/publications/c4ml24/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Slides](assets/files/publications/c4ml24/slides.pdf)
     <a href="assets/files/publications/c4ml24/poster_1.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [1. Poster](assets/files/publications/c4ml24/poster_1.pdf)
-    <a href="assets/files/publications/c4ml24/poster_2.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [2. Poster](assets/files/publications/c4ml24/poster_2.pdf)
+    <a href="assets/files/publications/c4ml24/poster_2.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [2. Poster](assets/files/publications/c4ml24/poster_2.pdf) -->
 
-1.  A. Rasch, R. Schulze, S. Gorlatch \\
+<!-- 1.  A. Rasch, R. Schulze, S. Gorlatch \\
     [Array Programming via Multi-Dimensional Homomorphisms](assets/files/publications/pldi23/paper.pdf) \\
     *ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2023), (WIP paper)* \\
     <a href="assets/files/publications/pldi23/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/pldi23/paper.pdf)
     <a href="assets/files/publications/pldi23/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/pldi23/slides.pdf)
-    <a href="https://www.youtube.com/watch?v=FAwgO86b6oo"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=FAwgO86b6oo)
+    <a href="https://www.youtube.com/watch?v=FAwgO86b6oo"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=FAwgO86b6oo) -->
 
-1.  R. Schulze, A. Rasch, S. Gorlatch \\
+<!-- 1.  R. Schulze, A. Rasch, S. Gorlatch \\
     [Code Generation & Optimization for Deep-Learning Computations on GPUs via Multi-Dimensional Homomorphisms](https://sc21.supercomputing.org/proceedings/tech_poster/) \\
     *International Conference for High Performance Computing, Networking, Storage and Analysis (SC 2021), **Best Poster Finalist**, (short paper)*\\
     <a href="assets/files/publications/sc21/paper.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em"></i></a> [Paper](assets/files/publications/sc21/paper.pdf)
     <a href="assets/files/publications/sc21/poster.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Poster](assets/files/publications/sc21/poster.pdf)
     <a href="assets/files/publications/sc21/slides.pdf"><i class="fas fa-file-pdf" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Slides](assets/files/publications/sc21/slides.pdf)
-    <a href="https://www.youtube.com/watch?v=nBJCc6TGUrg"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=nBJCc6TGUrg)
+    <a href="https://www.youtube.com/watch?v=nBJCc6TGUrg"><i class="fas fa-video" style="color: red; font-size: 2em; padding-top: .4em; padding-left: 1em"></i></a> [Talk](https://www.youtube.com/watch?v=nBJCc6TGUrg) -->
 
 1.  A. Rasch, R. Schulze, S. Gorlatch \\
     [Using MLIR for Multi-Dimensional Homomorphisms](https://groups.google.com/a/tensorflow.org/g/mlir/c/CxFj0UKBBRw) \\
@@ -509,7 +521,7 @@ By incorporating the user into the optimization process, we enable two major adv
 <br>
 # Citations
 
-Please use the following citations, when referring to MDH's:
+Please use the following citations when referring to MDH:
 
 1. *Formalism & Design*
 ~~~
