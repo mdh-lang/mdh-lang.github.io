@@ -586,28 +586,6 @@ series = {CC 2023}
       </table>
     </div>
   </div>
-  <div class="card">
-    <div class="card_content">
-      <a href="TODO" style="color: black"><img src="assets/images/lars.jpg" alt="Avatar"></a>
-      <a href="TODO" style="color: black"><h4><b>Lars Hunloh</b></h4></a>
-      <table>
-        <tr><td>Focus:</td><td>MDH in <a href="https://mlir.llvm.org">MLIR</a></td></tr>
-        <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
-        <tr><td>Email:</td><td><a href="mailto:l.hunloh@uni-muenster.de?cc=a.rasch@uni-muenster.de,r.schulze@uni-muenster.de">l.hunloh@uni-muenster.de</a></td></tr>
-      </table>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card_content">
-      <a href="TODO" style="color: black"><img src="assets/images/jens.jpg" alt="Avatar"></a>
-      <a href="TODO" style="color: black"><h4><b>Jens Hunloh</b></h4></a>
-      <table>
-        <tr><td>Focus:</td><td>MDH in <a href="https://mlir.llvm.org">MLIR</a></td></tr>
-        <tr><td>Affiliation:</td><td><a href="https://www.uni-muenster.de/en/">University of Münster</a></td></tr>
-        <tr><td>Email:</td><td><a href="mailto:j.hunloh@uni-muenster.de?cc=a.rasch@uni-muenster.de,r.schulze@uni-muenster.de">j.hunloh@uni-muenster.de</a></td></tr>
-      </table>
-    </div>
-  </div>
 </div>
 
 <br>
