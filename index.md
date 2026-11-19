@@ -6,36 +6,43 @@ layout: splash
 
 # Overview
 
-[Multi-Dimensional Homomorphisms (MDH)](https://dl.acm.org/doi/10.1145/3665643) is an algebraic formalism implemented as a DSL compiler for AI computations and beyond.
-Its ultimate goal is to deliver *performance*, *portability*, and *productivity*.
-To this end, MDH enables systematic reasoning about *de-composition* and *re-composition* strategies of data-parallel computations for the memory and core hierarchies of state-of-the-art parallel architectures.
+[Multi-Dimensional Homomorphisms (MDH)](https://dl.acm.org/doi/10.1145/3665643) is an algebraic formalism, implemented as a DSL compiler, for AI and data-parallel computing in general.
+It expresses systematic *de-composition* and *re-composition* of computations across the memory and core hierarchies of modern parallel architectures, including GPUs and CPUs.
 
-The MDH approach [formally introduces](https://dl.acm.org/doi/10.1145/3665643) and [implements](TODO) ***program representations*** on different abstraction levels
+
+## Ultimate MDH Goals
+
+1. **Performance**: achieve performance competitive to hand-optimized solutions
+2. **Portability**: target arbitrary parallel architecture
+3. **Productivity**: free user from hardware and optimization details
+
+## MDH Compiler Structure
+
+The MDH approach [formally introduces](https://dl.acm.org/doi/10.1145/3665643) and [implements](TODO) ***program representations*** on different abstraction levels and automatic ***transformations*** between them.
+
+<figure>
+  <img src="/assets/images/overview.png" alt="Overview of the MDH compilation pipeline" style="width: 95%">
+</figure>
+
+
+### MDH Program Representations
 
 1. [*High-Level Program Representation*](/mdh_hl) (`HL-IR`) expresses data-parallel computations agnostic of hardware and optimization details
 2. [*Low-Level Program Representation*](/mdh_ll) (`LL-IR`) expresses device- and data-optimized data movement and parallelization optimizations
 3. [*Code-Level Program Representation*](/mdh_cl) (`CL-IR`) expresses data-parallel computations in an imperative style
 
-and fully automatic ***transformations*** between them
+### MDH Program Transformations
 
-4. [*High-Level* → *Low-Level*](/mdh_hl_to_ll) (`HL➜LL`): based on auto-tuning, using the [Auto-Tuning Framework (ATF)](https://www.atf-tuner.org)
-5. [*Low-Level* → *Code-Level*](/mdh_ll_to_cl) (`LL➜CL`): shifts paradigm from functional to imperative
-6. [*Code-Level* → *Code-Level*](/mdh_cl_to_cl) (`CL➜CL`): applies standard code-level optimizations (e.g., loop unrolling)
-7. [*Code-Level* → *Backend*](/mdh_cl_to_backend) (`CL➜{…}`): lowers to executable target code (such as CUDA, OpenMP, and OpenCL)
-8. [*Backend* → *Backend*](/mdh_backend_to_backend) (`{…}➜{…}`): target-specific optimizations (e.g., exploiting warp-level operations on NVIDIA GPUs)
+1. [*High-Level* → *Low-Level*](/mdh_hl_to_ll) (`HL➜LL`): based on auto-tuning, using the [Auto-Tuning Framework (ATF)](https://www.atf-tuner.org)
+2. [*Low-Level* → *Code-Level*](/mdh_ll_to_cl) (`LL➜CL`): shifts paradigm from functional to imperative
+3. [*Code-Level* → *Code-Level*](/mdh_cl_to_cl) (`CL➜CL`): applies standard code-level optimizations (e.g., loop unrolling)
+4. [*Code-Level* → *Backend*](/mdh_cl_to_backend) (`CL➜{…}`): lowers to executable target code (such as CUDA, OpenMP, and OpenCL)
+5. [*Backend* → *Backend*](/mdh_backend_to_backend) (`{…}➜{…}`): target-specific optimizations (e.g., exploiting warp-level operations on NVIDIA GPUs)
 
+### Experiments
 
-<p align="center">
-  <img src="/assets/images/overview.png" alt="Overview of MDH Approach" width="85%">
-</p>
+[Experiments](/experiments) show results on GPUs and CPUs that are competitive with, and sometimes better than, state-of-practice approaches, including NVIDIA [cuBLAS](https://developer.nvidia.com/cublas)/[cuDNN](https://developer.nvidia.com/cudnn) and Intel [oneMKL](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/2023-0/intel-oneapi-math-kernel-library-onemkl.html)/[oneDNN](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onednn.html) which are hand-optimized libraries provided by vendors.
 
-Our [Experiments](/experiments) show results on GPUs and CPUs that are competitive with, and sometimes better than, state-of-practice approaches, including NVIDIA [cuBLAS](https://developer.nvidia.com/cublas)/[cuDNN](https://developer.nvidia.com/cudnn) and Intel [oneMKL](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/2023-0/intel-oneapi-math-kernel-library-onemkl.html)/[oneDNN](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onednn.html) which are hand-optimized libraries provided by vendors.
-
-### Ultimate MDH Goals
-
-- **Performance**: achieve performance competitive to hand-optimized solutions
-- **Portability**: target arbitrary parallel architecture
-- **Productivity**: free user from hardware and optimization details
 
 <br>
 # Getting Started
@@ -326,7 +333,8 @@ By incorporating the user into the optimization process, we enable two major adv
 *(An example scheduling program follows soon)*
 
 <br>
-<h1 id="publications">Selected Publications</h1>
+# Selected Publications
+{: #publications}
 
 1.  R. Schulze, A. Rasch \\
     [From Algebraic Data-Parallel Expressions to Imperative Parallel Code via Multi-Dimensional Homomorphisms](assets/files/publications/cgo27/paper.pdf) \\
